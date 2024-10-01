@@ -29,10 +29,16 @@ public class MonumentoController {
         return new ResponseEntity<>(monumentoService.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping("/id")
-    public ResponseEntity<List<Monumento>>mostrarListaPorId(@PathVariable("id")Long id){
-        return new ResponseEntity<List<Monumento>>(monumentoService.findById(id), HttpStatus.OK);
+    @GetMapping("/{id}")
+    public String mostrarMonumentoPorId(@PathVariable("id")Long id){
+        Optional<Monumento> optionalMonumento = monumentoService.findById(id);
+        if (optionalMonumento.isPresent()) {
+            Monumento monumento = optionalMonumento.get();
+            return mostrarMonumentoPorId(monumento.getId());
+        } else {
+            return null;
+        }
+
     }
-
-
+    
 }

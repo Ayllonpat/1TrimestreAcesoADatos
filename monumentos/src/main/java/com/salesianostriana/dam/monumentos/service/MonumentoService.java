@@ -21,4 +21,8 @@ public class MonumentoService {
     public Optional<Monumento> findById(Long id){
         return monumentoRepositorio.findById(id);
     }
+
+    public void softDeleteMonumento(Long id){
+        monumentoRepositorio.deleteById(id);
+    }
 }
