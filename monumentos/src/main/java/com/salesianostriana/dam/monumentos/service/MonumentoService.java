@@ -22,7 +22,9 @@ public class MonumentoService {
         return monumentoRepositorio.findById(id);
     }
 
-    public void softDeleteMonumento(Long id){
-        monumentoRepositorio.deleteById(id);
+    public Monumento modificarMonumento(Long id, Monumento monumento){
+        Monumento monumentoEncontrado = monumentoRepositorio.findById(id).orElse(null);
     }
+
+
 }

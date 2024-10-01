@@ -1,5 +1,6 @@
 package com.salesianostriana.dam.monumentos.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -18,12 +19,25 @@ public class Monumento {
     @GeneratedValue
     private Long id;
 
+    @Column(nullable = false, length = 2)
     private String codigoPais;
+
+    @Column(nullable = false)
     private String pais;
+
+    @Column(nullable = false)
     private String ciudad;
+
+    @Column(nullable = false)
     private String loc;
+
+    @Column(nullable = false)
     private String nombre;
+
+    @Column(nullable = false, length = 2000)
     private String descripcion;
+
+    @Column(nullable = false)
     private String urlImagen;
 
 }
