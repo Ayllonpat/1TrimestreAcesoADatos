@@ -22,8 +22,34 @@ public class MonumentoService {
         return monumentoRepositorio.findById(id);
     }
 
-    public Monumento modificarMonumento(Long id, Monumento monumento){
-        Monumento monumentoEncontrado = monumentoRepositorio.findById(id).orElse(null);
+    public Monumento guardar(Monumento monumento) {
+
+        return monumentoRepositorio.save(monumento);
+    }
+
+    public Monumento editar(Long id, Monumento edicion) {
+
+        Monumento antMonumento = monumentoRepositorio.findById(id).orElse(null);
+
+        if(antMonumento != null){
+
+            antMonumento.setLoc(edicion.getLoc());
+            antMonumento.setDescripcion(edicion.getDescripcion());
+            antMonumento.setCodigoPais(edicion.getCodigoPais());
+            antMonumento.setNombre(edicion.getNombre());
+            antMonumento.setCiudad(edicion.getCiudad());
+            antMonumento.setPais(edicion.getPais());
+            antMonumento.setUrlImagen(edicion.getUrlImagen());
+
+            return monumentoRepositorio.save(antMonumento);
+
+        }
+        return null;
+    }
+
+    public void deleteById(Long id) {
+
+        monumentoRepositorio.deleteById(id);
     }
 
 
