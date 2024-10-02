@@ -30,13 +30,13 @@ public class MonumentoController {
     }
 
     @GetMapping("/{id}")
-    public String mostrarMonumentoPorId(@PathVariable("id")Long id){
+    public ResponseEntity<Monumento> mostrarMonumentoPorId(@PathVariable("id")Long id){
         Optional<Monumento> optionalMonumento = monumentoService.findById(id);
         if (optionalMonumento.isPresent()) {
             Monumento monumento = optionalMonumento.get();
-            return mostrarMonumentoPorId(monumento.getId());
+            return new ResponseEntity<Monumento>(monumento, HttpStatus.OK);
         } else {
-            return null;
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
     }
