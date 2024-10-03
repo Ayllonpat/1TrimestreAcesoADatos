@@ -1,4 +1,4 @@
 package com.salesianostriana.dam.restaurantes.controller;
 
-public class controllerRestaurante {
+public class ControllerRestaurante {
 }
