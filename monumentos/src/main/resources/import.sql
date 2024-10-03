@@ -1,0 +1,2 @@
+INSERT INTO Monumento (id, codigo, pais, ciudad, loc, nombre, descripcion, url) VALUES ('1','IT','Italia','Roma','23,45','Fontana','Una fuente muy bonita','https://lh3.googleusercontent.com/p/AF1QipPZ_tTXIPjnl7vqS7Cr_LZwjT_49Hye_tjEhmFn=s680-w680-h510')
+INSERT INTO Monumento (id, codigo, pais, ciudad, loc, nombre, descripcion, url) VALUES ('2','IT','Italia','Roma','23,45','Fontana','Una fuente muy bonita','https://lh3.googleusercontent.com/p/AF1QipPZ_tTXIPjnl7vqS7Cr_LZwjT_49Hye_tjEhmFn=s680-w680-h510')

@@ -35,11 +35,11 @@ public class MonumentoService {
 
             antMonumento.setLoc(edicion.getLoc());
             antMonumento.setDescripcion(edicion.getDescripcion());
-            antMonumento.setCodigoPais(edicion.getCodigoPais());
+            antMonumento.setCodigo(edicion.getCodigo());
             antMonumento.setNombre(edicion.getNombre());
             antMonumento.setCiudad(edicion.getCiudad());
             antMonumento.setPais(edicion.getPais());
-            antMonumento.setUrlImagen(edicion.getUrlImagen());
+            antMonumento.setUrl(edicion.getUrl());
 
             return monumentoRepositorio.save(antMonumento);
 

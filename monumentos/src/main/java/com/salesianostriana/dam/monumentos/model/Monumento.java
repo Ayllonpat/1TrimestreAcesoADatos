@@ -20,7 +20,7 @@ public class Monumento {
     private Long id;
 
     @Column(nullable = false, length = 2)
-    private String codigoPais;
+    private String codigo;
 
     @Column(nullable = false)
     private String pais;
@@ -38,6 +38,6 @@ public class Monumento {
     private String descripcion;
 
     @Column(nullable = false)
-    private String urlImagen;
+    private String url;
 
 }
