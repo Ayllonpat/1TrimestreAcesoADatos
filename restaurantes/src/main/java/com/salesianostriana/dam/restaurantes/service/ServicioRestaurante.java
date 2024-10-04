@@ -1,14 +1,11 @@
 package com.salesianostriana.dam.restaurantes.service;
 
 import com.salesianostriana.dam.restaurantes.model.Restaurante;
-import com.salesianostriana.dam.restaurantes.model.Tag;
 import com.salesianostriana.dam.restaurantes.repository.RepositorioRestaurante;
 import com.salesianostriana.dam.restaurantes.repository.RepositorioTag;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,7 +27,7 @@ public class ServicioRestaurante {
     }
 
 
-    public Restaurante guardarRestaurante(Restaurante Restaurante, Tag tag) {
+    public Restaurante guardarRestaurante(Restaurante Restaurante) {
 
         return repositorioRestaurante.save(Restaurante);
     }
