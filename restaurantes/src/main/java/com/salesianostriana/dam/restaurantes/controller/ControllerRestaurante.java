@@ -17,7 +17,7 @@ public class ControllerRestaurante {
     @Autowired
     private ServicioRestaurante restauranteService;
 
-    @GetMapping("/findAll")
+    @GetMapping("/")
     public ResponseEntity<List<Restaurante>>mostrarLista(){
         return new ResponseEntity<>(restauranteService.findAllRestaurantes(), HttpStatus.OK);
     }
