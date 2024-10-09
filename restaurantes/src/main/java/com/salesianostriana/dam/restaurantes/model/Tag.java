@@ -1,10 +1,8 @@
 package com.salesianostriana.dam.restaurantes.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +18,12 @@ public class Tag {
     @Id
     private String nombreTag;
 
-    @Column
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Restaurante> restaurantesEnLosQueEsta;
+    @ManyToMany(mappedBy = "tags",
+            fetch = FetchType.EAGER)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @JsonIgnoreProperties("tags")
+    @Builder.Default
+    private List<Restaurante> bares = new ArrayList<>();
 
 }

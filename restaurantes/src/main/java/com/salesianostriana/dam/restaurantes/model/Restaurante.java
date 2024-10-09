@@ -1,9 +1,8 @@
 package com.salesianostriana.dam.restaurantes.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +11,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Table(name="restaurantes")
 public class Restaurante {
 
@@ -31,9 +31,15 @@ public class Restaurante {
     @Column(nullable = false, length = 2000)
     private String descripcionRestaurante;
 
-    @Column
-    @ManyToMany(mappedBy = "restaurantes", fetch = FetchType.EAGER)
-    private List<Tag> tags;
+    @ManyToMany
+    @JoinTable(name = "bar_tag",
+            joinColumns = @JoinColumn(name = "bar_id"),
+            inverseJoinColumns = @JoinColumn(name = "tag_id"))
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @JsonIgnoreProperties("bares")
+    @Builder.Default
+    private List<Tag> tags = new ArrayList<>();
 
     @Column(nullable = false)
     private String urlRestaurante;
